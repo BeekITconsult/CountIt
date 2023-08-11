@@ -14,6 +14,36 @@ public class WordDetectorTests
 
         var result = _sut.GetWordsFromText(inputString);
 
-        result.Should().BeEquivalentTo(new[] {"This", "is", "something"});
+        result.Should().BeEquivalentTo("This", "is", "something");
+    }
+
+    [Fact]
+    public void FindsWords_DelimitedByMultipleSpaces()
+    {
+        var inputString = "This  is  something";
+
+        var result = _sut.GetWordsFromText(inputString);
+
+        result.Should().BeEquivalentTo("This", "is", "something");
+    }
+
+    [Fact]
+    public void FindsWords_IgnoresLeadingAndTrailingSpaces()
+    {
+        var inputString = "   This  is  something    ";
+
+        var result = _sut.GetWordsFromText(inputString);
+
+        result.Should().BeEquivalentTo("This", "is", "something");
+    }
+
+    [Fact]
+    public void FindsWords_DelimitedByTab()
+    {
+        var inputString = "This\tis\tsomething";
+
+        var result = _sut.GetWordsFromText(inputString);
+
+        result.Should().BeEquivalentTo("This", "is", "something");
     }
 }

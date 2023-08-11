@@ -9,6 +9,9 @@ public class WordDetector
     {
         var regex = new Regex(@"\s+");
 
-        return regex.Split(text);
+        return regex
+            .Split(text)
+            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .ToList();
     }
 }
