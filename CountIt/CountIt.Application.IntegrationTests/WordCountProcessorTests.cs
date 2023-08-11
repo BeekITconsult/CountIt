@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using CountIt.ConsoleApp;
 using CountIt.Domain.Entities;
 using CountIt.Domain.Ports;
 using CountIt.TestSupport;

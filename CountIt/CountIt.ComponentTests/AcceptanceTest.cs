@@ -1,7 +1,5 @@
 using System.Threading.Tasks;
-using CountIt.ConsoleApp;
 using CountIt.ConsoleApp.Services;
-using CountIt.Domain.Entities;
 using CountIt.Domain.Ports;
 using CountIt.TestSupport;
 using FluentAssertions;
@@ -9,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Xunit;
 
-namespace CountIt.Application.IntegrationTests;
+namespace CountIt.ComponentTests;
 
 public class AcceptanceTest
 {
