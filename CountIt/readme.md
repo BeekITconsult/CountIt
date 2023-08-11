@@ -9,3 +9,8 @@ Aangeven:
 
 - Gebruik .net6 ivm LTS versie
 - Keuze om autofixture niet te gebruiken
+
+
+Overwegingen:
+
+- De wordcounter is een exponentieel algorithme. Zou eventueel dmv hassets of lookups efficienter kunnen. Daarmee zou de wordcounter wel kennis krijgen wanneer twee woorden hetzelfde zijn.

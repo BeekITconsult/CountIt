@@ -46,4 +46,14 @@ public class WordDetectorTests
 
         result.Should().BeEquivalentTo("This", "is", "something");
     }
+
+    [Fact]
+    public void IgnoresLeadingDot()
+    {
+        var inputString = "This  is  something.";
+
+        var result = _sut.GetWordsFromText(inputString);
+
+        result.Should().BeEquivalentTo("This", "is", "something");
+    }
 }
