@@ -13,8 +13,12 @@ public class ProcessedDocumentPresenter : IProcessedDocumentPresenter
 
     public void Present(ProcessedDocument document)
     {
-        _outputWriter.WriteLine($"Number of words: {document.WordCountPairs.Count}");
-        foreach (var wcp in document.WordCountPairs)
+        _outputWriter.WriteLine($"Number of words: {document.WordCountPairs.Sum(x => x.Count)}");
+
+        // Todo: Use custom order
+        var ordered = document.WordCountPairs.OrderBy(x => x.Word).ToList();
+
+        foreach (var wcp in ordered)
         {
             _outputWriter.WriteLine($"{wcp.Word.ToLower()} {wcp.Count}");
         }

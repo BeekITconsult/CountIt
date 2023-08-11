@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using CountIt.ConsoleApp;
 using CountIt.Domain.Entities;
 using CountIt.Domain.Ports;
+using CountIt.TestSupport;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
@@ -19,12 +20,28 @@ public class WordCountProcessorTests
     {
         _getDocument = new Mock<IGetDocument>();
 
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddCountIt();
-        serviceCollection.AddScoped<IGetDocument>(x => _getDocument.Object);
+        var testEnvironment = new TestEnvironment();
+        testEnvironment.ServiceCollection.AddScoped<IGetDocument>(x => _getDocument.Object);
+        var scope = testEnvironment.ServiceCollection
+            .BuildServiceProvider()
+            .CreateScope();
 
-        var scope = serviceCollection.BuildServiceProvider().CreateScope();
         _sut = scope.ServiceProvider.GetRequiredService<IWordCountProcessor>();
+    }
+
+    [Fact]
+    public async Task Enteres_AreProcessedCorrectly()
+    {
+        // Arrange
+        var input = "James \n is \n awesome";
+
+        SetupGetDocument(input);
+
+        // Act
+        var result = await _sut.GetWordCountAsync();
+
+        // Assert
+        result.WordCountPairs.Should().HaveCount(3);
     }
 
 
