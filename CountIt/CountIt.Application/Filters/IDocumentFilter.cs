@@ -7,5 +7,5 @@ public interface IDocumentFilter
     /// <summary>
     /// Filters input document by reference
     /// </summary>
-    void Filter(Document document);
+    Document Filter(Document document);
 }

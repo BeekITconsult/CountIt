@@ -1,6 +1,6 @@
 ﻿namespace CountIt.Domain.Entities;
 
-public class ProcessedDocument
+public record ProcessedDocument
 {
     public ICollection<WordCountPair> WordCounts { get; set; } = new List<WordCountPair>();
 }
