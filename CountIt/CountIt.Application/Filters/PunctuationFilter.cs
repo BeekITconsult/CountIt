@@ -3,11 +3,11 @@ using CountIt.Domain.Entities;
 
 namespace CountIt.Application;
 
-public class NumberFilter : IDocumentFilter
+public class PunctuationFilter : IDocumentFilter
 {
     public Document Filter(Document document)
     {
-        var filtered = RemoveNumbers(document.Contents);
+        var filtered = FilterPunctuationCharacters(document.Contents);
 
         return document with
         {
@@ -15,10 +15,13 @@ public class NumberFilter : IDocumentFilter
         };
     }
 
-    private static string RemoveNumbers(string text)
+    public string FilterPunctuationCharacters(string text)
     {
-        var regex = new Regex(@"\d", RegexOptions.None);
+        var regex = new Regex(@"[.,;]+", RegexOptions.None);
         var filtered = regex.Replace(text, string.Empty);
         return filtered;
     }
+
+
+
 }

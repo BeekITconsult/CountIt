@@ -3,8 +3,8 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <RootNamespace>CountIt.Application.IntegrationTests</RootNamespace>
-        <AssemblyName>CountIt.Application.IntegrationTests</AssemblyName>
+        <RootNamespace>CountIt.Application.UnitTests</RootNamespace>
+        <AssemblyName>CountIt.Application.UnitTests</AssemblyName>
 
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -25,12 +25,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
-      <ProjectReference Include="..\CountIt.TestSupport\CountIt.TestSupport.csproj" />
+        <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
+        <ProjectReference Include="..\CountIt.TestSupport\CountIt.TestSupport.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
+        <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
     </ItemGroup>
 
 

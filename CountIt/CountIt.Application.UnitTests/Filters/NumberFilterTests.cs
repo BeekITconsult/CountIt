@@ -1,9 +1,8 @@
-﻿using System.Runtime.InteropServices;
-using CountIt.Domain.Entities;
+﻿using CountIt.TestSupport;
 using FluentAssertions;
 using Xunit;
 
-namespace CountIt.Application.IntegrationTests.Filters;
+namespace CountIt.Application.UnitTests.Filters;
 
 public class NumberFilterTests
 {
@@ -19,21 +18,12 @@ public class NumberFilterTests
     public void Filter_FiltersNumbersCorrectly(string contents, string expectedContents)
     {
         // Arrange
-        var document = CreateDocument(contents);
+        var document = DocumentFactory.Create(contents);
 
         // Act
         var result = _sut.Filter(document);
 
         // Assert
         result.Contents.Should().Be(expectedContents);
-    }
-
-    private static Document CreateDocument(string testString)
-    {
-        return new Document
-        {
-            Name = "test.txt",
-            Contents = testString
-        };
     }
 }

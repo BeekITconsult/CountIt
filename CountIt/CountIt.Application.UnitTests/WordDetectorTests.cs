@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace CountIt.Application.IntegrationTests;
+namespace CountIt.Application.UnitTests;
 
 public class WordDetectorTests
 {
@@ -48,12 +48,12 @@ public class WordDetectorTests
     }
 
     [Fact]
-    public void IgnoresLeadingDot()
+    public void ConsidersDotPartOfWord()
     {
         var inputString = "This  is  something.";
 
         var result = _sut.GetWordsFromText(inputString);
 
-        result.Should().BeEquivalentTo("This", "is", "something");
+        result.Should().BeEquivalentTo("This", "is", "something.");
     }
 }
