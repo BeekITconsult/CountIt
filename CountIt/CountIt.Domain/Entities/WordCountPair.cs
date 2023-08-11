@@ -2,6 +2,6 @@
 
 public record WordCountPair
 {
-    public string Word { get; set; }
-    public int Count { get; set; }
+    public required string Word { get; set; }
+    public required int Count { get; set; }
 }

@@ -1,8 +1,8 @@
 ﻿using CountIt.Domain.Entities;
 
-namespace CountIt.Application;
+namespace CountIt.Application.Filters;
 
-public interface IDocumentFilter
+public interface IFilterDocument
 {
     /// <summary>
     /// Filters input document by reference

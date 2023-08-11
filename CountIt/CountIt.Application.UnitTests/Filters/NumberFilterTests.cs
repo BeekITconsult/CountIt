@@ -1,4 +1,5 @@
-﻿using CountIt.TestSupport;
+﻿using CountIt.Application.Filters;
+using CountIt.TestSupport;
 using FluentAssertions;
 using Xunit;
 

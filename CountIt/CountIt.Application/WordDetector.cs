@@ -3,7 +3,7 @@ using CountIt.Domain.Entities;
 
 namespace CountIt.Application;
 
-public class WordDetector
+public class WordDetector : IDetectWords
 {
     public ICollection<string> GetWordsFromText(string text)
     {

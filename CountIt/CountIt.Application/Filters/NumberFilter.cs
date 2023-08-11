@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using CountIt.Domain.Entities;
 
-namespace CountIt.Application;
+namespace CountIt.Application.Filters;
 
-public class NumberFilter : IDocumentFilter
+public class NumberFilter : IFilterDocument
 {
     public Document Filter(Document document)
     {

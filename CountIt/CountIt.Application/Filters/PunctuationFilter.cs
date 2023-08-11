@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using CountIt.Domain.Entities;
 
-namespace CountIt.Application;
+namespace CountIt.Application.Filters;
 
-public class PunctuationFilter : IDocumentFilter
+public class PunctuationFilter : IFilterDocument
 {
     public Document Filter(Document document)
     {

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountIt", "CountIt\CountIt.csproj", "{45FD5F76-D890-41A6-AED1-C0FA5AD98049}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountIt.ConsoleApp", "CountIt.ConsoleApp\CountIt.ConsoleApp.csproj", "{45FD5F76-D890-41A6-AED1-C0FA5AD98049}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountIt.Domain", "CountIt.Domain\CountIt.Domain.csproj", "{316138F2-2A21-437F-AC2D-F7CAB9507358}"
 EndProject

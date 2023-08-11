@@ -2,6 +2,6 @@
 
 public record Document
 {
-    public string Name { get; set; }
-    public string Contents { get; set; }
+    public required string Name { get; set; }
+    public required string Contents { get; set; }
 }

@@ -2,5 +2,6 @@
 
 public record ProcessedDocument
 {
-    public ICollection<WordCountPair> WordCounts { get; set; } = new List<WordCountPair>();
+    public required string FileName { get; set; }
+    public required ICollection<WordCountPair> WordCountPairs { get; set; } = new List<WordCountPair>();
 }

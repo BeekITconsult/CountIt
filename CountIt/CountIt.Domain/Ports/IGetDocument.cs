@@ -1,6 +1,6 @@
 ﻿using CountIt.Domain.Entities;
 
-namespace CountIt.Domain.Repository;
+namespace CountIt.Domain.Ports;
 
 public interface IGetDocument
 {

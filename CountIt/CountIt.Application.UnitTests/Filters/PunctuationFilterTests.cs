@@ -1,4 +1,5 @@
-﻿using CountIt.TestSupport;
+﻿using CountIt.Application.Filters;
+using CountIt.TestSupport;
 using FluentAssertions;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace CountIt.Application.UnitTests.Filters;
 
 public class PunctuationFilterTests
 {
-    private readonly PunctuationFilter _sut = new PunctuationFilter();
+    private readonly PunctuationFilter _sut = new ();
 
     [Theory]
     [InlineData("e-mail", "e-mail")]

@@ -9,6 +9,7 @@ Aangeven:
 
 - Gebruik .net6 ivm LTS versie
 - Keuze om autofixture niet te gebruiken
+- Moq situatie
 
 
 Overwegingen:

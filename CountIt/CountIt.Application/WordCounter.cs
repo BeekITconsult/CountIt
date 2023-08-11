@@ -2,7 +2,7 @@
 
 namespace CountIt.Application;
 
-public class WordCounter
+public class WordCounter : ICountWords
 {
     public ICollection<WordCountPair> CountNumberOfOccurencesPerWord(ICollection<string> words, StringComparison comparison)
     {
@@ -27,7 +27,7 @@ public class WordCounter
             return wcp;
         }
 
-        wcp = new WordCountPair {Word = word};
+        wcp = new WordCountPair {Word = word, Count = 0};
         wordCountPairCollection.Add(wcp);
 
         return wcp;
