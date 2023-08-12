@@ -66,6 +66,7 @@ public class WordCountProcessorTests
     public async Task Words_WithCapitals_AreRecognizedAsSameWords(string input, int expectedCount)
     {
         // Arrange
+        var testCase1 = "I am jAMming";
         SetupGetDocument(input);
 
         // Act
@@ -73,14 +74,55 @@ public class WordCountProcessorTests
 
         // Assert
         result.WordCountPairs.Should().HaveCount(expectedCount);
+    }
 
-        //TODO: Assert am has count two -> split test
+    [Fact]
+    public async Task Words_WithCapitals_AreRecognizedAsSameWords_AssertExactWords()
+    {
+        // Arrange
+        var input = "I am jAMming at four AM";
+        SetupGetDocument(input);
+
+        // Act
+        var result = await _sut.GetWordCountAsync();
+
+        // Assert
+        result.WordCountPairs.Should().BeEquivalentTo(new[]
+        {
+            new WordCountPair()
+            {
+                Word = "I",
+                Count = 1,
+            },
+            new WordCountPair()
+            {
+                Word = "am",
+                Count = 2,
+            },
+            new WordCountPair()
+            {
+                Word = "jAMming",
+                Count = 1,
+            },
+            new WordCountPair()
+            {
+                Word = "at",
+                Count = 1,
+            },
+
+            new WordCountPair()
+            {
+                Word = "four",
+                Count = 1,
+            },
+        });
     }
 
     [Theory]
     [InlineData("It's holiday", 2)]
     [InlineData("#superdupertest", 1)]
     [InlineData("j0hns@ns", 1)]
+    [InlineData("\"john", 1)]
     public async Task SpecialMarks_AreRecognizedAs_PartOfWord(string input, int expectedCount)
     {
         // Arrange

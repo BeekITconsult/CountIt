@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 using CountIt.ConsoleApp.Services;
+using CountIt.Domain.Exceptions;
 using CountIt.Domain.Ports;
 using CountIt.TestSupport;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using Xunit;
 
 namespace CountIt.ComponentTests;
 
@@ -46,6 +46,34 @@ public class AcceptanceTest
 
         // Assert
         _outputWriterCapturer.CapturedLines.Should()
-            .BeEquivalentTo("Number of words: 23", "big 3", "brown 3", "dog 2", "fox 3", "jumped 2", "lazy 2", "number 1", "over 2", "the 5");
+            .BeEquivalentTo(new [] {"Number of words: 23", "big 3", "brown 3", "dog 2", "fox 3", "jumped 2", "lazy 2", "number 1", "over 2", "the 5"}, o => o.WithStrictOrdering());
+    }
+
+    [Fact]
+    public async Task EmptyDocumentDoesNotCrash()
+    {
+        // Arrange
+        const string contents = "";
+        var document = DocumentFactory.Create(contents);
+        _getDocument.Setup(x => x.GetDocumentAsync()).ReturnsAsync(document);
+
+        // Act
+        await _sut.Execute();
+
+        // Assert
+        _outputWriterCapturer.CapturedLines.Should().BeEquivalentTo("Number of words: 0");
+    }
+
+    [Fact]
+    public async Task DocumentNotFound_FailsGracefully()
+    {
+        // Arrange
+        _getDocument.Setup(x => x.GetDocumentAsync()).Throws<DocumentNotFoundException>();
+
+        // Act
+        await _sut.Execute();
+
+        // Assert
+        _outputWriterCapturer.CapturedLines.Should().BeEquivalentTo("Something went wrong loading the document, please contact our support department at awesomesupportdesk@countit.com");
     }
 }

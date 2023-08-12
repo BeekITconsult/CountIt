@@ -10,6 +10,9 @@ Aangeven:
 - Gebruik .net6 ivm LTS versie
 - Keuze om autofixture niet te gebruiken
 - Moq situatie
+- Sort ipv orderby gemaakt. Niet voorzien van ascending / descending
+- Sort niet met IEnumerable gemaakt ivm performance
+- SharedLibrary zou ik normaal een nuget package van maken en in een andere repository stoppen
 
 
 Overwegingen:

@@ -1,4 +1,5 @@
 using CountIt.Domain.Entities;
+using CountIt.SharedLibrary.Ordering;
 
 namespace CountIt.ConsoleApp.Services;
 
@@ -15,12 +16,16 @@ public class ProcessedDocumentPresenter : IProcessedDocumentPresenter
     {
         _outputWriter.WriteLine($"Number of words: {document.WordCountPairs.Sum(x => x.Count)}");
 
-        // Todo: Use custom order
-        var ordered = document.WordCountPairs.OrderBy(x => x.Word).ToList();
+        var ordered = document.WordCountPairs.ToList().OrderBy(x => x.Word);
 
         foreach (var wcp in ordered)
         {
             _outputWriter.WriteLine($"{wcp.Word.ToLower()} {wcp.Count}");
         }
+    }
+
+    public void Present(string message)
+    {
+        _outputWriter.WriteLine(message);
     }
 }

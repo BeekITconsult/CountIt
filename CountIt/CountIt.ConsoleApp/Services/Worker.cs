@@ -1,4 +1,5 @@
 using CountIt.Application;
+using CountIt.Domain.Exceptions;
 
 namespace CountIt.ConsoleApp.Services;
 
@@ -15,7 +16,14 @@ public class Worker
 
     public async Task Execute()
     {
-        var document = await _wordCountProcessor.GetWordCountAsync();
-        _presenter.Present(document);
+        try
+        {
+            var document = await _wordCountProcessor.GetWordCountAsync();
+            _presenter.Present(document);
+        }
+        catch (DocumentNotFoundException)
+        {
+            _presenter.Present("Something went wrong loading the document, please contact our support department at awesomesupportdesk@countit.com");
+        }
     }
 }
