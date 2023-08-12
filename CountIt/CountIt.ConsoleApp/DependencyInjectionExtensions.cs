@@ -1,6 +1,8 @@
 using CountIt.Application;
 using CountIt.Application.Filters;
 using CountIt.ConsoleApp.Services;
+using CountIt.Domain.Ports;
+using CountIt.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CountIt.ConsoleApp;
@@ -17,6 +19,7 @@ public static class DependencyInjectionExtensions
             .AddTransient<IWordCountProcessor, WordCountProcessor>()
             .AddTransient<IProcessedDocumentPresenter, ProcessedDocumentPresenter>()
             .AddTransient<IOutputWriter, ConsoleOutputWriter>()
+            .AddTransient<IGetDocument, DocumentRetriever>()
             .AddTransient<Worker>();
     }
 

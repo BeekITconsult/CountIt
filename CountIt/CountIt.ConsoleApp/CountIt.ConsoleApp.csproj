@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
+      <ProjectReference Include="..\CountIt.Infrastructure\CountIt.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
