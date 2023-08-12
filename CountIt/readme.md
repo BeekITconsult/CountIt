@@ -13,6 +13,7 @@ Architectuur:
 - Ik heb principes van clean architectuur & clean code gebruikt .
 - De ConsoleApp bevat de software die de terugkoppeling en presentatie naar de gebruiker doet. De rationale is dat de manier van presenteren sterk gekoppeld is aan het type applicatie. Wanneer je dit zou hosten als bijv. webapi zal dit er compleet anders uit zien.
 - De sort gebruikt IList en geen IEnumerable. Bij het gebruik van IEnumerable zou de performance velen malen slechter worden. Onder andere omdat er continue over de lijst geïtereerd moet worden om een element m.b.v. de index op te halen (ElementAt).
+- Het shared library project zou ik normaliter als een apart nuget package opzetten (met een eigen repo + pipeline).
 
 
 Codering:
@@ -27,6 +28,7 @@ Testen:
 - Ik heb enkel testen waarin de infrastructuur weggemockt is. Dat komt omdat afhankelijk zijn van het file system niet handig is, daar krijg je ook wobbly/flaky testen van. Je zou een test toe kunnen voegen met een docker image waar het bestand al op het file system staat. Afhankelijk van de situatie bij het bedrijf is dat wel of niet verstandig.
 - Ik geneer nu zelf de test data, je kunt ook gebruik maken van autofixture
 - Ik heb een class voor de TestEnvironment. Als dit component groot zou worden en er veel testen op component niveau komen met allerlei verschillende ingangen zou ik een complete abstractielaag schrijven om de onderhoudbaarheid van de component testen goed te houden.
+- Her en der zouden meer edge cases als testen toegevoegd kunnen worden. Ook zou er bijvoorbeeld in de WordCountProcessorTests iets scherper geassert kunnen worden.
 
 Build / test / deploy
 - Ik heb geen pipeline gemaakt. Ik geloof ook niet dat een simpele YAML pipeline toevoegen/kopiëren  voor deze simpele console app een goede demonstratie van mijn skills zou zijn.
