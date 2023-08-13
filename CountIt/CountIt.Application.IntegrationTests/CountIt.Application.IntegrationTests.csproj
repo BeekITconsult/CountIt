@@ -27,7 +27,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
-      <ProjectReference Include="..\CountIt.ConsoleApp\CountIt.ConsoleApp.csproj" />
       <ProjectReference Include="..\CountIt.TestSupport\CountIt.TestSupport.csproj" />
     </ItemGroup>
 

@@ -10,7 +10,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CountIt.ConsoleApp\CountIt.ConsoleApp.csproj" />
-      <ProjectReference Include="..\CountIt.Domain\CountIt.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -29,9 +29,5 @@
         <ProjectReference Include="..\CountIt.TestSupport\CountIt.TestSupport.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\CountIt.Application\CountIt.Application.csproj" />
-    </ItemGroup>
-
 
 </Project>
